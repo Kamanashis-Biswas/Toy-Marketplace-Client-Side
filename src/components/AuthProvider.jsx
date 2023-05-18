@@ -33,7 +33,13 @@ const AuthProvider = ({ children }) => {
 
     useState(() => {
         const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
-            console.log("logged in user inside auth state observer", loggedUser);
+            console.log(loggedUser);
+            loggedUser.getIdToken().then(token=>{
+                const expiryDays = 7;
+                const expiryDate = new Date();
+                expiryDate.setDate(expiryDate.getDate() + expiryDays);
+                document.cookie = `access_token=${token}; path=/; expires=${expiryDate.toUTCString()}; secure;`;
+            })
             setUser(loggedUser);
             setLoading(false);
         });

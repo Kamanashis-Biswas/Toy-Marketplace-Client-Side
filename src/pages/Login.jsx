@@ -28,7 +28,6 @@ const Login = () => {
           .then((result) => {
             const loggedUser = result.user;
             console.log(loggedUser);
-            console.log(loggedUser.getIdTocken());
             navigate(from, { replace: true });
           })
           .catch((error) => {
