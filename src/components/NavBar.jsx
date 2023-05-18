@@ -1,5 +1,4 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
-import { Link } from "react-router-dom";
 
 
 const NavBar = () => {
@@ -8,14 +7,14 @@ const NavBar = () => {
             fluid={true}
             rounded={true}
         >
-            <Navbar.Brand href="https://flowbite.com/">
+            <Navbar.Brand href="/">
                 <img
-                    src="https://flowbite.com/docs/images/logo.svg"
+                    src="https://i.ibb.co/7tjX3cM/Untitled-1.png"
                     className="mr-3 h-6 sm:h-9"
-                    alt="Flowbite Logo"
+                    alt="ToyTreasureBox"
                 />
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                    Flowbite
+                    ToyTreasureBox
                 </span>
             </Navbar.Brand>
             <div className="flex md:order-2">
@@ -32,15 +31,6 @@ const NavBar = () => {
                             name@flowbite.com
                         </span>
                     </Dropdown.Header>
-                    <Dropdown.Item>
-                        Dashboard
-                    </Dropdown.Item>
-                    <Dropdown.Item>
-                        Settings
-                    </Dropdown.Item>
-                    <Dropdown.Item>
-                        Earnings
-                    </Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item>
                         Sign out
@@ -50,23 +40,27 @@ const NavBar = () => {
             </div>
             <Navbar.Collapse>
                 <Navbar.Link
-                    href="/navbars"
+                    href="/"
                     active={true}
                 >
                     Home
                 </Navbar.Link>
                 <Navbar.Link href="/navbars">
-                    About
+                    All Toys
                 </Navbar.Link>
                 <Navbar.Link href="/navbars">
-                    Services
+                    My Toys
                 </Navbar.Link>
                 <Navbar.Link href="/navbars">
-                    Pricing
+                    My Toys
                 </Navbar.Link>
                 <Navbar.Link href="/navbars">
-                    Contact
+                    Add A Toy
                 </Navbar.Link>
+                <Navbar.Link href="/navbars">
+                    Blog
+                </Navbar.Link>
+
             </Navbar.Collapse>
         </Navbar>
     );
