@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "./AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button, Label, Spinner, TextInput } from "flowbite-react";
 import { updateProfile } from "firebase/auth";
+import { AuthContext } from "../components/AuthProvider";
 
 
 const Register = () => {

@@ -5,17 +5,16 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import "./index.css";
-import Main from './components/Main';
-import ErrorPage from './components/Error';
-import Home from './components/Home';
-import AllToys from './components/AllToys';
-import MyToys from './components/MyToys';
-import AddAToy from './components/AddAToy';
-import Blog from './components/Blog';
-import Login from './components/Login';
-import Register from './components/Register';
 import AuthProvider from './components/AuthProvider';
+import Main from './components/Main';
+import ErrorPage from './pages/Error';
+import Home from './pages/Home';
+import AllToys from './pages/AllToys';
+import MyToys from './pages/MyToys';
+import AddAToy from './pages/AddAToy';
+import Blog from './pages/Blog';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 const router = createBrowserRouter([
   {

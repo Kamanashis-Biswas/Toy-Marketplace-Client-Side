@@ -12,14 +12,14 @@ const NavBar = () => {
             fluid={true}
             rounded={true}
         >
-            <Navbar.Brand href="/">
+            <Navbar.Brand>
                 <img
-                    src="https://i.ibb.co/7tjX3cM/Untitled-1.png"
+                    src="https://i.ibb.co/Bc4TBhc/Vintage-toys-pretty-clipart-006.png"
                     className="mr-3 h-6 sm:h-9"
                     alt="ToyTreasureBox"
                 />
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                    ToyTreasureBox
+                CarWonderland
                 </span>
             </Navbar.Brand>
             {user && (

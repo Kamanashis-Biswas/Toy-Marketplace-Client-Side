@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "./AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button, Label, Spinner, TextInput } from "flowbite-react";
+import { AuthContext } from "../components/AuthProvider";
 
 
 const Login = () => {
@@ -28,6 +28,7 @@ const Login = () => {
           .then((result) => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            console.log(loggedUser.getIdTocken());
             navigate(from, { replace: true });
           })
           .catch((error) => {
