@@ -1,9 +1,28 @@
 import { Button, Label, Select, TextInput, Textarea } from "flowbite-react";
 
 const AddAToy = () => {
+
+    const handleAddToy = (event) => {
+        const form = event.target;
+        const toy_name = form.toy_name.value;
+        const seller_name = form.seller_name.value;
+        const seller_email = form.seller_email.value;
+        const category = form.category.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const quentity = form.quentity.value;
+        const photo = form.photo.value;
+        const comment = form.comment.value;
+
+        console.log(toy_name, seller_name, seller_email, category, price, rating, quentity, photo, comment);
+
+    };
+
+
+
     return (
         <div className="p-3 text-center">
-            <div>
+            <form onSubmit={handleAddToy}>
                 <div className="md:flex gap-10 justify-between">
                     <div className="md:w-1/2 mb-6">
                         <div className="mb-2 block">
@@ -14,6 +33,7 @@ const AddAToy = () => {
                         </div>
                         <TextInput
                             id="toy_name"
+                            name="toy_name"
                             type="text"
 
                         />
@@ -27,6 +47,7 @@ const AddAToy = () => {
                         </div>
                         <TextInput
                             id="seller_name"
+                            name="saller_name"
                             type="text"
                         />
                     </div>
@@ -41,6 +62,7 @@ const AddAToy = () => {
                         </div>
                         <TextInput
                             id="seller_email"
+                            name="seller_email"
                             type="email"
 
                         />
@@ -54,6 +76,7 @@ const AddAToy = () => {
                         </div>
                         <Select
                             id="category"
+                            name="category"
                             required={true}
                         >
                             <option>
@@ -82,6 +105,7 @@ const AddAToy = () => {
                         <TextInput
                             id="price"
                             type="text"
+                            name="price"
 
                         />
                     </div>
@@ -95,6 +119,7 @@ const AddAToy = () => {
                         <TextInput
                             id="rating"
                             type="text"
+                            name="rating"
                         />
                     </div>
                 </div>
@@ -108,6 +133,7 @@ const AddAToy = () => {
                         </div>
                         <TextInput
                             id="quentity"
+                            name="quentity"
                             type="text"
 
                         />
@@ -121,6 +147,7 @@ const AddAToy = () => {
                         </div>
                         <TextInput
                             id="toy_photo"
+                            name="toy_photo"
                             type="text"
                         />
                     </div>
@@ -133,6 +160,7 @@ const AddAToy = () => {
                         />
                         <Textarea
                             id="comment"
+                            name="comment"
                             placeholder="Description of Toy..."
                             required={true}
                             rows={4}
@@ -140,9 +168,9 @@ const AddAToy = () => {
                     </div>
                 </div>
                 <div className="flex mt-4 justify-center">
-                    <Button>Add Toy</Button>
+                    <Button type="submit">Add A Toy</Button>
                 </div>
-            </div>
+            </form>
         </div>
     );
 };
