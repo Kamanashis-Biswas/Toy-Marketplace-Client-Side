@@ -1,16 +1,24 @@
-import { Card } from "flowbite-react";
+import { Button, Card, Rating } from "flowbite-react";
 
 
 const ToyDetailsCard = () => {
     return (
         <div>
             <Card imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg">
-                <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Noteworthy technology acquisitions 2021
+                <h5 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    Toy Name
                 </h5>
                 <p className="font-normal text-gray-700 dark:text-gray-400">
-                    Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                    Price
                 </p>
+                <Rating className="">
+                    <Rating.Star />
+                    <Rating.Star />
+                    <Rating.Star />
+                    <Rating.Star />
+                    <Rating.Star filled={false} />
+                </Rating>
+                <Button>View Details</Button>
             </Card>
         </div>
     );
