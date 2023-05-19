@@ -1,9 +1,10 @@
+import AllToyCard from "../components/AllToyCard";
 
 
 const AllToys = () => {
     return (
         <div>
-            <h2>All Toys</h2>
+            <AllToyCard></AllToyCard>
         </div>
     );
 };
