@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button, Label, Spinner, TextInput } from "flowbite-react";
 import { AuthContext } from "../components/AuthProvider";
@@ -6,15 +6,14 @@ import { AuthContext } from "../components/AuthProvider";
 
 const Login = () => {
     const [loading, setLoading] = useState(false);
-    const { signIn, signInWithGoogle } =
-    useContext(AuthContext);
+    const { signIn, signInWithGoogle, user} = useContext(AuthContext);
     const navigate = useNavigate();
-  const location = useLocation();
-  console.log("Login page location", location);
-  const from = location.state?.from?.pathname || "/";
 
-  const [error, setError] = useState("");
+    useEffect(()=>{
+      if(localStorage.getItem('auth-status')) navigate('/');
+    }, [])
 
+    const [error, setError] = useState("");
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -27,8 +26,7 @@ const Login = () => {
         signIn(email, password)
           .then((result) => {
             const loggedUser = result.user;
-            console.log(loggedUser);
-            navigate(from, { replace: true });
+            navigate("/");
           })
           .catch((error) => {
             setError(error.message);
@@ -41,7 +39,7 @@ const Login = () => {
           .then((result) => {
             const loggedUser = result.user;
             console.log(loggedUser);
-            navigate(from, { replace: true });
+            navigate("/");
           })
           .catch((error) => {
             console.log(error);

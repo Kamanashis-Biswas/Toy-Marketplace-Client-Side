@@ -1,8 +1,18 @@
 import { Button, Label, Select, TextInput, Textarea } from "flowbite-react";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../components/AuthProvider";
+import api from "../config/api";
 
 const AddAToy = () => {
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!localStorage.getItem('auth-status')) navigate('/login');
+    }, []);
 
-    const handleAddToy = (event) => {
+    const handleAddToy = async (event) => {
+        event.preventDefault();
         const form = event.target;
         const toy_name = form.toy_name.value;
         const seller_name = form.seller_name.value;
@@ -10,15 +20,13 @@ const AddAToy = () => {
         const category = form.category.value;
         const price = form.price.value;
         const rating = form.rating.value;
-        const quentity = form.quentity.value;
-        const photo = form.photo.value;
+        const quantity = form.quantity.value;
+        const photo = form.toy_photo.value;
         const comment = form.comment.value;
 
-        console.log(toy_name, seller_name, seller_email, category, price, rating, quentity, photo, comment);
-
+        const resp = await api.post("/create-toy", { toy_name });
+        // if(resp) navigate('/');
     };
-
-
 
     return (
         <div className="p-3 text-center">
@@ -47,8 +55,10 @@ const AddAToy = () => {
                         </div>
                         <TextInput
                             id="seller_name"
-                            name="saller_name"
+                            name="seller_name"
                             type="text"
+                            defaultValue={user?.displayName || ""}
+                            disabled={true}
                         />
                     </div>
                 </div>
@@ -64,6 +74,8 @@ const AddAToy = () => {
                             id="seller_email"
                             name="seller_email"
                             type="email"
+                            defaultValue={user?.email || ""}
+                            disabled={true}
 
                         />
                     </div>
@@ -127,13 +139,13 @@ const AddAToy = () => {
                     <div className="md:w-1/2 mb-6">
                         <div className="mb-2 block">
                             <Label
-                                htmlFor="quentity"
-                                value="Available Quentity"
+                                htmlFor="quantity"
+                                value="Available Quantity"
                             />
                         </div>
                         <TextInput
-                            id="quentity"
-                            name="quentity"
+                            id="quantity"
+                            name="quantity"
                             type="text"
 
                         />

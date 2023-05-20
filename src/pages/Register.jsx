@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button, Label, Spinner, TextInput } from "flowbite-react";
 import { updateProfile } from "firebase/auth";
@@ -6,16 +6,19 @@ import { AuthContext } from "../components/AuthProvider";
 
 
 const Register = () => {
-
     const [loading, setLoading] = useState(false);
-    const { createUser } = useContext(AuthContext);
+    const { createUser, user } = useContext(AuthContext);
 
     const [error, setError] = useState("");
 
     const navigate = useNavigate();
     const location = useLocation();
-    console.log("Register page location", location);
-    const from = location.state?.from?.pathname || "/";
+
+    useEffect(()=>{
+        if(localStorage.getItem('auth-status')) navigate('/');
+
+    }, []);
+
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -46,7 +49,7 @@ const Register = () => {
                 const createdUser = result.user;
                 updateProfile(result.user, { displayName: name, photoURL: photo });
                 console.log(createdUser);
-                navigate(from, { replace: true });
+                navigate("/");
             })
             .catch((error) => {
                 console.log(error);
