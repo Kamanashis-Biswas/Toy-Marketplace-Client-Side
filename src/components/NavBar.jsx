@@ -1,12 +1,13 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const path = useLocation().pathname;
+  const navigate = useNavigate();
   return (
     <div className="mt-3 mb-5 md:mb-10">
       <Navbar
@@ -46,7 +47,7 @@ const NavBar = () => {
               </Dropdown.Header>
 
               <Dropdown.Divider />
-              <Dropdown.Item onClick={() => logOut()}>Sign out</Dropdown.Item>
+              <Dropdown.Item onClick={() => { logOut(); navigate('/') }}>Sign out</Dropdown.Item>
             </Dropdown>
             <Navbar.Toggle />
           </div>
@@ -90,14 +91,16 @@ const NavBar = () => {
             className={path === "/alltoys" ? "underline" : ""}>
             All Toys
           </Link>
-          <Link to="/mytoys"
-            className={path === "/mytoys" ? "underline" : ""}>
-            My Toys
-          </Link>
-          <Link to="/addatoy"
-            className={path === "/addatoy" ? "underline" : ""}>
-            Add A Toy
-          </Link>
+          {user && (<>
+            <Link to="/mytoys"
+              className={path === "/mytoys" ? "underline" : ""}>
+              My Toys
+            </Link>
+            <Link to="/addatoy"
+              className={path === "/addatoy" ? "underline" : ""}>
+              Add A Toy
+            </Link></>)
+          }
           <Link to="/blog"
             className={path === "/blog" ? "underline" : ""}>
             Blog
