@@ -4,7 +4,7 @@ import { Button, Card, Rating } from "flowbite-react";
 const ToyDetailsCard = () => {
     return (
         <div>
-            <Card imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg">
+            <Card className="p-4" imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg">
                 <h5 className="text-2xl font-bold text-gray-900 dark:text-white">
                     Toy Name
                 </h5>

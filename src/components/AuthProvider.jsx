@@ -33,8 +33,9 @@ const AuthProvider = ({ children }) => {
 
     useState(() => {
         const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
-            console.log(loggedUser);
-            loggedUser.getIdToken().then(token=>{
+            if(!loggedUser) localStorage.removeItem("auth-status");
+            else localStorage.setItem('auth-status', true);
+            loggedUser?.getIdToken().then(token=>{
                 const expiryDays = 7;
                 const expiryDate = new Date();
                 expiryDate.setDate(expiryDate.getDate() + expiryDays);
