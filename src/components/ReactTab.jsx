@@ -1,8 +1,21 @@
+import { useEffect, useRef, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import ToyDetailsCard from './ToyDetailsCard';
+import api from '../config/api';
+import FilteredToys from './FilterdToys';
+
+
 
 const ReactTab = () => {
+    const [toys, setToys] = useState(null);
+    const [currentTabIndex, setCurrentTabIndex] = useState(0);
+    const category = ["sports_car", "truck", "regular_car", "mini_fire_truck"];
+    useEffect(()=>{
+        api.get(`/get-category-toy?category=${category[currentTabIndex]}`).then(data=>{
+            setToys(data.data);
+        });
+
+    }, [currentTabIndex]);
     return (
         <div className='text-center'>
             <Tabs forceRenderTabPanel defaultIndex={1}>
@@ -10,7 +23,7 @@ const ReactTab = () => {
                     <Tab>Toy Car</Tab>
                 </TabList>
                 <TabPanel>
-                    <Tabs forceRenderTabPanel>
+                    <Tabs onSelect={(evt)=>setCurrentTabIndex(evt)} forceRenderTabPanel>
                         <TabList>
                             <Tab>Sports Car</Tab>
                             <Tab>Truck</Tab>
@@ -19,31 +32,19 @@ const ReactTab = () => {
                         </TabList>
                         <TabPanel>
                             <p>Sports Car</p>
-                            <div className='md:flex gap-4'>
-                                <ToyDetailsCard></ToyDetailsCard>
-                                <ToyDetailsCard></ToyDetailsCard>
-                            </div>
+                            <FilteredToys toys={toys || []}></FilteredToys>
                         </TabPanel>
                         <TabPanel>
                             <p>Track</p>
-                            <div className='md:flex gap-4'>
-                                <ToyDetailsCard></ToyDetailsCard>
-                                <ToyDetailsCard></ToyDetailsCard>
-                            </div>
+                            <FilteredToys toys={toys || []}></FilteredToys>
                         </TabPanel>
                         <TabPanel>
                             <p>Regular Car</p>
-                            <div className='md:flex gap-4'>
-                                <ToyDetailsCard></ToyDetailsCard>
-                                <ToyDetailsCard></ToyDetailsCard>
-                            </div>
+                            <FilteredToys toys={toys || []}></FilteredToys>
                         </TabPanel>
                         <TabPanel>
                             <p>Mini Fire Track</p>
-                            <div className='md:flex gap-4'>
-                                <ToyDetailsCard></ToyDetailsCard>
-                                <ToyDetailsCard></ToyDetailsCard>
-                            </div>
+                            <FilteredToys toys={toys || []}></FilteredToys>
                         </TabPanel>
                     </Tabs>
                 </TabPanel>

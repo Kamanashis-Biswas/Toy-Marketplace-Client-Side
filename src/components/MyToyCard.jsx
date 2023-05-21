@@ -1,19 +1,16 @@
 import { Button, Table } from "flowbite-react";
 
 
-const MyToyCard = () => {
+const MyToyCard = ({ toys }) => {
     return (
         <div>
             <Table>
                 <Table.Head>
                     <Table.HeadCell>
-                        Seller Name
-                    </Table.HeadCell>
-                    <Table.HeadCell>
                         Toy Name
                     </Table.HeadCell>
                     <Table.HeadCell>
-                        Sub-Category
+                        Seller Name
                     </Table.HeadCell>
                     <Table.HeadCell>
                         Price
@@ -22,75 +19,37 @@ const MyToyCard = () => {
                         Available Quentity
                     </Table.HeadCell>
                     <Table.HeadCell>
-                        <span className="sr-only">
+                        Description
+                    </Table.HeadCell>
+                    <Table.HeadCell>
                             Edit
-                        </span>
                     </Table.HeadCell>
                 </Table.Head>
                 <Table.Body className="divide-y">
-                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                            Apple MacBook Pro 17
-                        </Table.Cell>
-                        <Table.Cell>
-                            Sliver
-                        </Table.Cell>
-                        <Table.Cell>
-                            Laptop
-                        </Table.Cell>
-                        <Table.Cell>
-                            $2999
-                        </Table.Cell>
-                        <Table.Cell>
-                            100
-                        </Table.Cell>
-                        <Table.Cell>
-                            <Button className="w-[70px] h-[30px] mb-2">Update</Button>
-                            <Button className="w-[70px] h-[30px]">Delete</Button>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                            Microsoft Surface Pro
-                        </Table.Cell>
-                        <Table.Cell>
-                            White
-                        </Table.Cell>
-                        <Table.Cell>
-                            Laptop PC
-                        </Table.Cell>
-                        <Table.Cell>
-                            $1999
-                        </Table.Cell>
-                        <Table.Cell>
-                            100
-                        </Table.Cell>
-                        <Table.Cell>
-                            <Button className="w-[70px] h-[30px] mb-2">Update</Button>
-                            <Button className="w-[70px] h-[30px]">Delete</Button>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                            Magic Mouse 2
-                        </Table.Cell>
-                        <Table.Cell>
-                            Black
-                        </Table.Cell>
-                        <Table.Cell>
-                            Accessories
-                        </Table.Cell>
-                        <Table.Cell>
-                            $99
-                        </Table.Cell>
-                        <Table.Cell>
-                            100
-                        </Table.Cell>
-                        <Table.Cell>
-                            <Button className="w-[70px] h-[30px] mb-2">Update</Button>
-                            <Button className="w-[70px] h-[30px]">Delete</Button>
-                        </Table.Cell>
-                    </Table.Row>
+                    {toys?.map(toy => (
+                        <Table.Row key={toy._id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                            <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                                {toy.toy_name}
+                            </Table.Cell>
+                            <Table.Cell>
+                                {toy.seller_name}
+                            </Table.Cell>
+                            <Table.Cell>
+                                {toy.price}
+                            </Table.Cell>
+                            <Table.Cell>
+                                {toy.avail_qty}
+                            </Table.Cell>
+                            <Table.Cell>
+                                {toy.description}
+                            </Table.Cell>
+                            <Table.Cell>
+                                <Button className="w-[70px] h-[30px] mb-2">Update</Button>
+                                <Button className="w-[70px] h-[30px]">Delete</Button>
+                            </Table.Cell>
+                        </Table.Row>
+                    ))
+                    }
                 </Table.Body>
             </Table>
         </div>

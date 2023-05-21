@@ -1,7 +1,13 @@
 import { Button, Table } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
 
+const categoryObject = {
+    "mini_fire_truck": "Mini Fire Truck",
+    "regular_car": "Regular Car"
+};
 
-const AllToyCard = () => {
+const AllToyCard = ({toys}) => {
+    const navigate = useNavigate();
     return (
         <div>
             <Table>
@@ -28,66 +34,29 @@ const AllToyCard = () => {
                     </Table.HeadCell>
                 </Table.Head>
                 <Table.Body className="divide-y">
-                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                            Apple MacBook Pro 17
-                        </Table.Cell>
-                        <Table.Cell>
-                            Sliver
-                        </Table.Cell>
-                        <Table.Cell>
-                            Laptop
-                        </Table.Cell>
-                        <Table.Cell>
-                            $2999
-                        </Table.Cell>
-                        <Table.Cell>
-                            100
-                        </Table.Cell>
-                        <Table.Cell>
-                           <Button>View Details</Button>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                            Microsoft Surface Pro
-                        </Table.Cell>
-                        <Table.Cell>
-                            White
-                        </Table.Cell>
-                        <Table.Cell>
-                            Laptop PC
-                        </Table.Cell>
-                        <Table.Cell>
-                            $1999
-                        </Table.Cell>
-                        <Table.Cell>
-                           100
-                        </Table.Cell>
-                        <Table.Cell>
-                           <Button>View Details</Button>
-                        </Table.Cell>
-                    </Table.Row>
-                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                            Magic Mouse 2
-                        </Table.Cell>
-                        <Table.Cell>
-                            Black
-                        </Table.Cell>
-                        <Table.Cell>
-                            Accessories
-                        </Table.Cell>
-                        <Table.Cell>
-                            $99
-                        </Table.Cell>
-                        <Table.Cell>
-                           100
-                        </Table.Cell>
-                        <Table.Cell>
-                           <Button>View Details</Button>
-                        </Table.Cell>
-                    </Table.Row>
+                    {toys?.map(toy=>(
+                        <Table.Row key={toy._id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                            <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                                {toy.seller_name}
+                            </Table.Cell>
+                            <Table.Cell>
+                                {toy.toy_name}
+                            </Table.Cell>
+                            <Table.Cell>
+                                {categoryObject[toy.category]}
+                            </Table.Cell>
+                            <Table.Cell>
+                                {toy.price}
+                            </Table.Cell>
+                            <Table.Cell>
+                                {toy.avail_qty}
+                            </Table.Cell>
+                            <Table.Cell>
+                            <Button onClick={()=>navigate(`/details/${toy._id}`)}>View Details</Button>
+                            </Table.Cell>
+                        </Table.Row>
+                    ))
+                    }
                 </Table.Body>
             </Table>
         </div>
