@@ -56,7 +56,7 @@ const NavBar = () => {
             arrowIcon={false}
             inline={true}
           >
-            <Dropdown.Header>
+            {/* <Dropdown.Header>
               <span className="block text-sm">
                 Bonnie Green
               </span>
@@ -76,7 +76,7 @@ const NavBar = () => {
             <Dropdown.Divider />
             <Dropdown.Item>
               Sign out
-            </Dropdown.Item>
+            </Dropdown.Item> */}
           </Dropdown>
           <Navbar.Toggle />
         </div>}

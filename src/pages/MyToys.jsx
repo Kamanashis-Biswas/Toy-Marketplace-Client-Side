@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../components/AuthProvider";
+import MyToyCard from "../components/MyToyCard";
 
 
 const MyToys = () => {
@@ -11,7 +12,7 @@ const MyToys = () => {
     }, []);
     return (
         <div>
-            <h2>My Toys</h2>
+           <MyToyCard></MyToyCard>
         </div>
     );
 };

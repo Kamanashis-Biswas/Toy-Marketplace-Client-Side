@@ -18,7 +18,7 @@ const Blog = () => {
             </div>
             <div>
                 <h1 className="font-bold text-xl mb-4">
-                    Q.2 User Compare SQL and NoSQL databases?
+                    Q.2 Compare SQL and NoSQL databases?
                 </h1>
                 <div className="ml-5">
                     <p className="mb-4">
@@ -27,7 +27,15 @@ const Blog = () => {
                 </div>
             </div>
             <div>
-                <h2 className="font-bold text-xl mb-4">Q3. What is MongoDB aggregate and how does it work?</h2>
+                <h2 className="font-bold text-xl mb-4">Q3. What is express js? What is Nest JS?</h2>
+                <div className="ml-5">
+                    <p>
+                        Express.js is a minimalist and flexible web application framework for Node.js, focusing on simplicity and customization. Nest.js, built on top of Express.js, is a structured and opinionated framework that brings modularity and scalability to Node.js applications using TypeScript. The choice between the two depends on the specific needs and preferences of a project, with Express.js providing simplicity and flexibility, and Nest.js offering a more structured and scalable approach to application development.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <h2 className="font-bold text-xl mb-4">Q4. What is MongoDB aggregate and how does it work?</h2>
                 <div className="ml-5">
                     <p>
                         The MongoDB aggregation framework is a feature that allows for advanced data processing and analysis within the database. It works by applying a series of stages to a collection of documents, allowing for complex operations such as filtering, grouping, sorting, and transforming the data. Each stage performs a specific operation on the data and passes the transformed result to the next stage in the pipeline. By combining these stages and utilizing various operators and functions, users can perform sophisticated data analysis and obtain the desired output. The aggregation framework provides a flexible and efficient way to process data directly within MongoDB, enabling powerful querying and data manipulation capabilities.
