@@ -10,20 +10,21 @@ const ReactTab = () => {
     const [toys, setToys] = useState(null);
     const [currentTabIndex, setCurrentTabIndex] = useState(0);
     const category = ["sports_car", "truck", "regular_car", "mini_fire_truck"];
-    useEffect(()=>{
-        api.get(`/get-category-toy?category=${category[currentTabIndex]}`).then(data=>{
+    useEffect(() => {
+        api.get(`/get-category-toy?category=${category[currentTabIndex]}`).then(data => {
             setToys(data.data);
         });
 
     }, [currentTabIndex]);
     return (
         <div className='text-center'>
+            <h2 className="text-center my-8 font-bold underline text-3xl">Shop by Category</h2>
             <Tabs forceRenderTabPanel defaultIndex={1}>
                 <TabList>
                     <Tab>Toy Car</Tab>
                 </TabList>
                 <TabPanel>
-                    <Tabs onSelect={(evt)=>setCurrentTabIndex(evt)} forceRenderTabPanel>
+                    <Tabs onSelect={(evt) => setCurrentTabIndex(evt)} forceRenderTabPanel>
                         <TabList>
                             <Tab>Sports Car</Tab>
                             <Tab>Truck</Tab>

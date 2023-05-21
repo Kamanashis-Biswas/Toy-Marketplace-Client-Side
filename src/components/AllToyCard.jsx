@@ -10,6 +10,14 @@ const AllToyCard = ({toys}) => {
     const navigate = useNavigate();
     return (
         <div>
+            <div>
+                <form>
+                    <div className="flex my-10">
+                        <input type="search" name="search" />
+                        <Button>Search</Button>
+                    </div>
+                </form>
+            </div>
             <Table>
                 <Table.Head>
                     <Table.HeadCell>

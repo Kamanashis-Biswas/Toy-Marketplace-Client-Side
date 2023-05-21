@@ -43,6 +43,7 @@ const AddAToy = () => {
                             id="toy_name"
                             name="toy_name"
                             type="text"
+                            required
 
                         />
                     </div>
@@ -118,6 +119,7 @@ const AddAToy = () => {
                             id="price"
                             type="text"
                             name="price"
+                            required
 
                         />
                     </div>
@@ -132,6 +134,7 @@ const AddAToy = () => {
                             id="rating"
                             type="text"
                             name="rating"
+                            required
                         />
                     </div>
                 </div>
@@ -161,6 +164,7 @@ const AddAToy = () => {
                             id="toy_photo"
                             name="toy_photo"
                             type="text"
+                            required
                         />
                     </div>
                 </div>

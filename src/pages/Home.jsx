@@ -9,7 +9,6 @@ const Home = () => {
         <div>
             {/* Bannar section */}
             <Banner></Banner>
-            <h2 className="text-center my-8 font-bold underline text-3xl">Shop by Category</h2>
             <ReactTab></ReactTab>
             <HowItWorks></HowItWorks>
             <Aos></Aos>

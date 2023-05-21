@@ -1,9 +1,24 @@
-import { Button, Table } from "flowbite-react";
+import { Button, Select, Table } from "flowbite-react";
 
 
 const MyToyCard = ({ toys }) => {
     return (
         <div>
+            <div>
+                <form>
+                <Select className="w-[200px] my-10"
+                            id=""
+                            name=""
+                        >
+                            <option>
+                                Sort by Low Price
+                            </option>
+                            <option>
+                                Sort by High Price
+                            </option>
+                        </Select>
+                </form>
+            </div>
             <Table>
                 <Table.Head>
                     <Table.HeadCell>
