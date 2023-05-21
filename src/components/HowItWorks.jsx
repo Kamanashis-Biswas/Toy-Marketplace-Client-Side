@@ -2,7 +2,7 @@ import { Card } from "flowbite-react";
 
 const HowItWorks = () => {
     return (
-        <div>
+        <div className="mb-8 md:mb-[100px]">
             <h2 className="text-center mt-8 md:mt-[100px] mb-10 font-bold text-2xl md:text-6xl">Here&apos;s how it works</h2>
             <div className="md:flex gap-5">
                 <Card className="mb-5">
