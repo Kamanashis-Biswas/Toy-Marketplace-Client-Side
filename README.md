@@ -19,7 +19,7 @@ A brief description of what this project is all about.
 - Feature 2: You showed details of toy.
 - Feature 3: When you click View Details button then you go to login page after login complete then shows toy details.
 - Feature 4: When you clicked Blog button on Nav Bar then showed 4 Important question answer about react.
--Feature 5: When you click Login Button then showed login page and after complete login then redirect to login page.
--Feature 6: All toy and My Toy is a private route when you login then see the document
+- Feature 5: When you click Login Button then showed login page and after complete login then redirect to login page.
+- Feature 6: All toy and My Toy is a private route when you login then see the document
 
 ## Live Website Link: [()]
