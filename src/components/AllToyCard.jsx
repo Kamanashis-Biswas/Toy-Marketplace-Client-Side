@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 const categoryObject = {
     "mini_fire_truck": "Mini Fire Truck",
-    "regular_car": "Regular Car"
+    "regular_car": "Regular Car",
+    "sports_car":"Sports Car",
+    "truck":"Track"
 };
 
 const AllToyCard = ({toys}) => {

@@ -3,8 +3,11 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../components/AuthProvider";
 import api from "../config/api";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddAToy = () => {
+    const notify = () => toast("Product Added");
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     useEffect(() => {
@@ -20,11 +23,12 @@ const AddAToy = () => {
         const category = form.category.value;
         const price = form.price.value;
         const rating = form.rating.value;
-        const quantity = form.quantity.value;
+        const avail_qty = form.quantity.value;
         const photo = form.toy_photo.value;
-        const comment = form.comment.value;
+        const descriptions = form.comment.value;
 
-        const resp = await api.post("/create-toy", { toy_name });
+        const resp = await api.post("/create-toy", { toy_name, category, price, rating, avail_qty, descriptions });
+        form.reset();
         // if(resp) navigate('/');
     };
 
@@ -43,7 +47,6 @@ const AddAToy = () => {
                             id="toy_name"
                             name="toy_name"
                             type="text"
-                            required
 
                         />
                     </div>
@@ -92,16 +95,16 @@ const AddAToy = () => {
                             name="category"
                             required={true}
                         >
-                            <option>
+                            <option value="sports_car">
                                 Sports Car
                             </option>
-                            <option>
+                            <option value="truck">
                                 Truck
                             </option>
-                            <option>
+                            <option value="regular_car">
                                 Regular Car
                             </option>
-                            <option>
+                            <option value="mini_fire_truck">
                                 Mini Fire Truck
                             </option>
                         </Select>
@@ -119,7 +122,6 @@ const AddAToy = () => {
                             id="price"
                             type="text"
                             name="price"
-                            required
 
                         />
                     </div>
@@ -134,7 +136,6 @@ const AddAToy = () => {
                             id="rating"
                             type="text"
                             name="rating"
-                            required
                         />
                     </div>
                 </div>
@@ -164,7 +165,6 @@ const AddAToy = () => {
                             id="toy_photo"
                             name="toy_photo"
                             type="text"
-                            required
                         />
                     </div>
                 </div>
@@ -184,7 +184,8 @@ const AddAToy = () => {
                     </div>
                 </div>
                 <div className="flex mt-4 justify-center">
-                    <Button type="submit">Add A Toy</Button>
+                    <Button type="submit" onClick={notify}>Add A Toy</Button>
+                    <ToastContainer />
                 </div>
             </form>
         </div>

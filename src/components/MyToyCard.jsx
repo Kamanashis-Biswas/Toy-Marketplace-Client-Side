@@ -6,17 +6,17 @@ const MyToyCard = ({ toys }) => {
         <div>
             <div>
                 <form>
-                <Select className="w-[200px] my-10"
-                            id=""
-                            name=""
-                        >
-                            <option>
-                                Sort by Low Price
-                            </option>
-                            <option>
-                                Sort by High Price
-                            </option>
-                        </Select>
+                    <Select className="w-[200px] my-10"
+                        id=""
+                        name=""
+                    >
+                        <option>
+                            Sort by Low Price
+                        </option>
+                        <option>
+                            Sort by High Price
+                        </option>
+                    </Select>
                 </form>
             </div>
             <Table>
@@ -37,7 +37,7 @@ const MyToyCard = ({ toys }) => {
                         Description
                     </Table.HeadCell>
                     <Table.HeadCell>
-                            Edit
+                        Edit
                     </Table.HeadCell>
                 </Table.Head>
                 <Table.Body className="divide-y">
@@ -56,7 +56,8 @@ const MyToyCard = ({ toys }) => {
                                 {toy.avail_qty}
                             </Table.Cell>
                             <Table.Cell>
-                                {toy.description}
+                                {toy.
+                                    descriptions}
                             </Table.Cell>
                             <Table.Cell>
                                 <Button className="w-[70px] h-[30px] mb-2">Update</Button>
