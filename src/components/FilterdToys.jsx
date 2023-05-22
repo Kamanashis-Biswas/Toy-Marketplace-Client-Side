@@ -5,7 +5,7 @@ const FilteredToys = ({ toys }) => {
      const navigate = useNavigate();
     return (
     <div className="flex justify-center gap-5 md:mt-10 mb-5 p-2">
-        {toys.map(toy => (
+        {toys.slice(0,2).map(toy => (
             
             <Card className="w-[300px] " imgSrc={toy.
                 photoUrl} key={toy._id}>
