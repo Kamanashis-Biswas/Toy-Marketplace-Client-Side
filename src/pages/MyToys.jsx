@@ -34,7 +34,7 @@ const MyToys = () => {
     }, []);
 
     return (
-        <div>
+        <div className="overflow-x-auto">
             <MyToyCard getMyToys={getMyToys} page={metaData.page} toys={myToy || []}></MyToyCard>
             <div className="flex flex-col items-center">
                 <span className="text-sm text-gray-700 dark:text-gray-400">

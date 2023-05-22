@@ -12,11 +12,10 @@ const AllToyCard = ({toys, setSearch, page}) => {
     const navigate = useNavigate();
     return (
         <div>
-            <div>
+            <div className="flex justify-center">
                 <form>
                     <div className="flex my-10">
-                        <input onChange={(evt)=>setSearch(page, evt.target.value)} type="search" name="search" />
-                        <Button>Search</Button>
+                        <input className="w-[300px] rounded-xl" onChange={(evt)=>setSearch(page, evt.target.value)} type="search" name="search" placeholder="Type Toy Name for Search" />
                     </div>
                 </form>
             </div>

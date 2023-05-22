@@ -32,19 +32,15 @@ const ReactTab = () => {
                             <Tab>Mini Fire Truck</Tab>
                         </TabList>
                         <TabPanel>
-                            <p>Sports Car</p>
                             <FilteredToys toys={toys || []}></FilteredToys>
                         </TabPanel>
                         <TabPanel>
-                            <p>Track</p>
                             <FilteredToys toys={toys || []}></FilteredToys>
                         </TabPanel>
                         <TabPanel>
-                            <p>Regular Car</p>
                             <FilteredToys toys={toys || []}></FilteredToys>
                         </TabPanel>
                         <TabPanel>
-                            <p>Mini Fire Track</p>
                             <FilteredToys toys={toys || []}></FilteredToys>
                         </TabPanel>
                     </Tabs>

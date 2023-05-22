@@ -16,6 +16,7 @@ import Blog from './pages/Blog';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ViewDetails from './pages/ViewDetails';
+import UpdateAToy from './pages/UpdateAToy';
 
 const router = createBrowserRouter([
   {
@@ -36,8 +37,12 @@ const router = createBrowserRouter([
         element: <MyToys></MyToys>
       },
       {
-        path: "addatoy",
+        path: "/addatoy",
         element: <AddAToy></AddAToy>
+      },
+      {
+        path: "/updateatoy/:id",
+        element: <UpdateAToy />
       },
       {
         path: "/blog",

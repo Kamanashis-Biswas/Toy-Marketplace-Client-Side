@@ -37,16 +37,10 @@ const AuthProvider = ({ children }) => {
             if(!loggedUser) localStorage.removeItem("auth-status");
             else localStorage.setItem('auth-status', true);
             loggedUser?.getIdToken().then(token=>{
-                console.log(token);
                 const expiryDays = 7;
                 const expiryDate = new Date();
                 expiryDate.setDate(expiryDate.getDate() + expiryDays);
-                // api.post('/set-cookies', {__session:token}).then(resp=>{
-                //     console.log(resp);
-                // })
                 localStorage.setItem('access_token', token);
-                // document.cookie = `__session=${token}; domain=.vercel.app; path=/; expires=${expiryDate.toUTCString()};httpOnly=false; sameSite=none; secure`;
-                console.log(document.cookie);
             });
             setUser(loggedUser);
             setLoading(false);

@@ -28,7 +28,7 @@ const AllToys = () => {
     }, []);
 
     return (
-        <div>
+        <div className="overflow-x-auto">
             <AllToyCard page={metaData.page} setSearch={getAllToys} toys={allToy || []}></AllToyCard>
             <div className="flex flex-col items-center">
                 <span className="text-sm text-gray-700 dark:text-gray-400">

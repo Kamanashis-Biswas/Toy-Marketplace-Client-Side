@@ -18,68 +18,33 @@ const NavBar = () => {
           <img
             src="https://i.ibb.co/Bc4TBhc/Vintage-toys-pretty-clipart-006.png"
             className="mr-3 h-6 sm:h-9"
-            alt="ToyTreasureBox"
+            alt=" CarWonderland"
           />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
             CarWonderland
           </span>
         </Navbar.Brand>
-        {user ? (
-          <div className="flex md:order-2">
-            <Dropdown
-              arrowIcon={false}
-              inline={true}
-              label={
-                <Avatar
-                  alt="User settings"
-                  img={user && user.photoURL}
-                  rounded={true}
-                />
-              }
-            >
-              <Dropdown.Header>
-                <span className="block text-sm">
-                  {user && user.displayName}
-                </span>
-                <span className="block truncate text-sm font-medium">
-                  {user && user.email}
-                </span>
-              </Dropdown.Header>
-
-              <Dropdown.Divider />
-              <Dropdown.Item onClick={() => { logOut(); navigate('/') }}>Sign out</Dropdown.Item>
-            </Dropdown>
-            <Navbar.Toggle />
-          </div>
-        ) : <div className="flex md:order-2 md:hidden">
-          <Dropdown
+        <div className="flex md:order-2">
+          {user && <Dropdown
             arrowIcon={false}
             inline={true}
+            label={<Avatar alt="User settings" img={user && user.photoURL} rounded={true} />}
           >
-            {/* <Dropdown.Header>
+            <Dropdown.Header>
               <span className="block text-sm">
-                Bonnie Green
+              {user && user.displayName}
               </span>
               <span className="block truncate text-sm font-medium">
-                name@flowbite.com
+              {user && user.email}
               </span>
             </Dropdown.Header>
-            <Dropdown.Item>
-              Dashboard
-            </Dropdown.Item>
-            <Dropdown.Item>
-              Settings
-            </Dropdown.Item>
-            <Dropdown.Item>
-              Earnings
-            </Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item>
+            <Dropdown.Item onClick={() => { logOut(); navigate('/') }}>
               Sign out
-            </Dropdown.Item> */}
-          </Dropdown>
+            </Dropdown.Item>
+          </Dropdown>}
           <Navbar.Toggle />
-        </div>}
+        </div>
         <Navbar.Collapse>
           <Link
             to="/"

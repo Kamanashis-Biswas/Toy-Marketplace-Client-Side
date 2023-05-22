@@ -11,7 +11,7 @@ const MyToyCard = ({ toys, getMyToys, page }) => {
     }
     return (
         <div>
-            <div>
+            <div className="ml-3 md:ml0">
                 <form>
                     <Select onChange={(evt)=>getMyToys(page, evt.target.value)} className="w-[200px] my-10"
                     >
@@ -65,7 +65,7 @@ const MyToyCard = ({ toys, getMyToys, page }) => {
                                     descriptions}
                             </Table.Cell>
                             <Table.Cell>
-                                <Button className="w-[70px] h-[30px] mb-2">Update</Button>
+                                <Button onClick={()=>navigate(`/updateatoy/${toy._id}`)} className="w-[70px] h-[30px] mb-2">Update</Button>
                                 <Button onClick={()=>deleteMyToy(toy._id)} className="w-[70px] h-[30px]">Delete</Button>
                             </Table.Cell>
                         </Table.Row>
