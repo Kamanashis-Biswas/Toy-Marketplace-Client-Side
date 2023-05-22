@@ -15,8 +15,8 @@ const MyToys = () => {
     const [metaData, setMetaData] = useState({page: 1, perPage: 10, count: 0, totalPages:1});
     const dataFetchedRef = useRef(null);
 
-    const getMyToys = (id)=>{
-        api.get(`/get-my-toys?page=${id}`).then(resp=>{
+    const getMyToys = (page, sort_order="")=>{
+        api.get(`/get-my-toys?page=${page}&sort_order=${sort_order}`).then(resp=>{
             setMyToy(resp.data.toys);
             setMetaData({
                 page: resp.data.page,
@@ -35,7 +35,7 @@ const MyToys = () => {
 
     return (
         <div>
-            <MyToyCard toys={myToy || []}></MyToyCard>
+            <MyToyCard getMyToys={getMyToys} page={metaData.page} toys={myToy || []}></MyToyCard>
             <div className="flex flex-col items-center">
                 <span className="text-sm text-gray-700 dark:text-gray-400">
                     Showing <span className="font-semibold text-gray-900 dark:text-white">{((metaData.page - 1) * metaData.perPage) + 1}</span> to <span className="font-semibold text-gray-900 dark:text-white">{((metaData.page - 1) * metaData.perPage) + myToy?.length}</span> of <span className="font-semibold text-gray-900 dark:text-white">{metaData.count}</span> Entries

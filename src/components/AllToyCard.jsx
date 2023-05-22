@@ -8,14 +8,14 @@ const categoryObject = {
     "truck":"Track"
 };
 
-const AllToyCard = ({toys}) => {
+const AllToyCard = ({toys, setSearch, page}) => {
     const navigate = useNavigate();
     return (
         <div>
             <div>
                 <form>
                     <div className="flex my-10">
-                        <input type="search" name="search" />
+                        <input onChange={(evt)=>setSearch(page, evt.target.value)} type="search" name="search" />
                         <Button>Search</Button>
                     </div>
                 </form>

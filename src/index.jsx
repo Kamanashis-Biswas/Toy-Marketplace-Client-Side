@@ -15,6 +15,7 @@ import AddAToy from './pages/AddAToy';
 import Blog from './pages/Blog';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import ViewDetails from './pages/ViewDetails';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/details/:id",
+        element: <ViewDetails></ViewDetails>
       }
     ],
   },

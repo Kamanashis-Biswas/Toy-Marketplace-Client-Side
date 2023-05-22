@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from "./firebase/firebase.config";
+import api from "../config/api";
 
 export const AuthContext = createContext(null);
 
@@ -40,8 +41,13 @@ const AuthProvider = ({ children }) => {
                 const expiryDays = 7;
                 const expiryDate = new Date();
                 expiryDate.setDate(expiryDate.getDate() + expiryDays);
-                document.cookie = `access_token=${token}; path=/; expires=${expiryDate.toUTCString()}; secure;`;
-            })
+                // api.post('/set-cookies', {__session:token}).then(resp=>{
+                //     console.log(resp);
+                // })
+                localStorage.setItem('access_token', token);
+                // document.cookie = `__session=${token}; domain=.vercel.app; path=/; expires=${expiryDate.toUTCString()};httpOnly=false; sameSite=none; secure`;
+                console.log(document.cookie);
+            });
             setUser(loggedUser);
             setLoading(false);
         });

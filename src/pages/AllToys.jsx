@@ -7,13 +7,11 @@ import api from '../config/api';
 const AllToys = () => {
     const [allToy, setAllToy] = useState([]);
     const [metaData, setMetaData] = useState({page: 1, perPage: 10, count: 0, totalPages:1});
-    const [page, setPage] = useState(1);
     const dataFetchedRef = useRef(null);
 
-    const getAllToys = (id)=>{
-        api.get(`/get-all-toys?page=${id}`).then(resp=>{
+    const getAllToys = (page, search_query="")=>{
+        api.get(`/get-all-toys?page=${page}&search_query=${search_query}`).then(resp=>{
             setAllToy(resp.data.toys);
-            console.log(resp);
             setMetaData({
                 page: resp.data.page,
                 perPage: resp.data.perPage,
@@ -31,7 +29,7 @@ const AllToys = () => {
 
     return (
         <div>
-            <AllToyCard toys={allToy || []}></AllToyCard>
+            <AllToyCard page={metaData.page} setSearch={getAllToys} toys={allToy || []}></AllToyCard>
             <div className="flex flex-col items-center">
                 <span className="text-sm text-gray-700 dark:text-gray-400">
                     Showing <span className="font-semibold text-gray-900 dark:text-white">{((metaData.page - 1) * metaData.perPage) + 1}</span> to <span className="font-semibold text-gray-900 dark:text-white">{((metaData.page - 1) * metaData.perPage) + allToy?.length}</span> of <span className="font-semibold text-gray-900 dark:text-white">{metaData.count}</span> Entries

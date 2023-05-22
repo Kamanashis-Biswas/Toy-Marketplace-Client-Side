@@ -18,8 +18,8 @@ const AddAToy = () => {
         event.preventDefault();
         const form = event.target;
         const toy_name = form.toy_name.value;
-        const seller_name = form.seller_name.value;
-        const seller_email = form.seller_email.value;
+        // const seller_name = form.seller_name.value;
+        // const seller_email = form.seller_email.value;
         const category = form.category.value;
         const price = form.price.value;
         const rating = form.rating.value;
@@ -27,7 +27,7 @@ const AddAToy = () => {
         const photo = form.toy_photo.value;
         const descriptions = form.comment.value;
 
-        const resp = await api.post("/create-toy", { toy_name, category, price, rating, avail_qty, descriptions });
+        const resp = await api.post("/create-toy", { toy_name, category, price, rating, avail_qty, descriptions,photo });
         form.reset();
         // if(resp) navigate('/');
     };
@@ -165,6 +165,7 @@ const AddAToy = () => {
                             id="toy_photo"
                             name="toy_photo"
                             type="text"
+                            required
                         />
                     </div>
                 </div>

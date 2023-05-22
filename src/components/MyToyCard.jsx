@@ -1,19 +1,24 @@
 import { Button, Select, Table } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
+import api from "../config/api";
 
 
-const MyToyCard = ({ toys }) => {
+const MyToyCard = ({ toys, getMyToys, page }) => {
+    const navigate = useNavigate();
+    const deleteMyToy = (id)=>{
+        const resp = api.delete(`/toy/${id}`);
+        if(resp) navigate('/mytoys');
+    }
     return (
         <div>
             <div>
                 <form>
-                    <Select className="w-[200px] my-10"
-                        id=""
-                        name=""
+                    <Select onChange={(evt)=>getMyToys(page, evt.target.value)} className="w-[200px] my-10"
                     >
-                        <option>
+                        <option value="asc">
                             Sort by Low Price
                         </option>
-                        <option>
+                        <option value="desc">
                             Sort by High Price
                         </option>
                     </Select>
@@ -61,7 +66,7 @@ const MyToyCard = ({ toys }) => {
                             </Table.Cell>
                             <Table.Cell>
                                 <Button className="w-[70px] h-[30px] mb-2">Update</Button>
-                                <Button className="w-[70px] h-[30px]">Delete</Button>
+                                <Button onClick={()=>deleteMyToy(toy._id)} className="w-[70px] h-[30px]">Delete</Button>
                             </Table.Cell>
                         </Table.Row>
                     ))
