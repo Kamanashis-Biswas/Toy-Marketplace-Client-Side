@@ -1,54 +1,52 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Label, Spinner, TextInput } from "flowbite-react";
 import { AuthContext } from "../components/AuthProvider";
 
-
 const Login = () => {
-    const [loading, setLoading] = useState(false);
-    const { signIn, signInWithGoogle, user} = useContext(AuthContext);
-    const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const { signIn, signInWithGoogle, user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-    useEffect(()=>{
-      if(localStorage.getItem('auth-status')) navigate('/');
-    }, [])
+  useEffect(() => {
+    if (localStorage.getItem("auth-status")) navigate("/");
+  }, []);
 
-    const [error, setError] = useState("");
+  const [error, setError] = useState("");
 
-    const handleLogin = (event) => {
-        event.preventDefault();
-        setLoading(true);
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        setError("");
-    
-        signIn(email, password)
-          .then((result) => {
-            const loggedUser = result.user;
-            navigate("/");
-          })
-          .catch((error) => {
-            setError(error.message);
-            setLoading(false);
-          });
-      };
+  const handleLogin = (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    setError("");
 
-      const handleGoogleSignIn = () => {
-        signInWithGoogle()
-          .then((result) => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            navigate("/");
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      };
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        navigate("/");
+      })
+      .catch((error) => {
+        setError(error.message);
+        setLoading(false);
+      });
+  };
 
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-    return (
-        <div>
+  return (
+    <div>
       <h3 className="text-3xl text-center">Please Login</h3>
       <div>
         <form
@@ -126,7 +124,7 @@ const Login = () => {
         </form>
       </div>
     </div>
-    );
+  );
 };
 
 export default Login;

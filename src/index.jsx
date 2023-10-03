@@ -1,22 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import AuthProvider from './components/AuthProvider';
-import Main from './components/Main';
-import ErrorPage from './pages/Error';
-import Home from './pages/Home';
-import AllToys from './pages/AllToys';
-import MyToys from './pages/MyToys';
-import AddAToy from './pages/AddAToy';
-import Blog from './pages/Blog';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import ViewDetails from './pages/ViewDetails';
-import UpdateAToy from './pages/UpdateAToy';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AuthProvider from "./components/AuthProvider";
+import Main from "./components/Main";
+import ErrorPage from "./pages/Error";
+import Home from "./pages/Home";
+import AllToys from "./pages/AllToys";
+import MyToys from "./pages/MyToys";
+import AddAToy from "./pages/AddAToy";
+import Blog from "./pages/Blog";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ViewDetails from "./pages/ViewDetails";
+import UpdateAToy from "./pages/UpdateAToy";
 
 const router = createBrowserRouter([
   {
@@ -26,50 +23,48 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: "alltoys",
-        element: <AllToys></AllToys>
+        element: <AllToys></AllToys>,
       },
       {
         path: "/mytoys",
-        element: <MyToys></MyToys>
+        element: <MyToys></MyToys>,
       },
       {
         path: "/addatoy",
-        element: <AddAToy></AddAToy>
+        element: <AddAToy></AddAToy>,
       },
       {
         path: "/updateatoy/:id",
-        element: <UpdateAToy />
+        element: <UpdateAToy />,
       },
       {
         path: "/blog",
-        element: <Blog></Blog>
+        element: <Blog></Blog>,
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
       },
       {
         path: "/register",
-        element: <Register></Register>
+        element: <Register></Register>,
       },
       {
         path: "/details/:id",
-        element: <ViewDetails></ViewDetails>
-      }
+        element: <ViewDetails></ViewDetails>,
+      },
     ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <div className="max-w-7xl mx-auto">
-    <React.StrictMode>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
-    </React.StrictMode>
-  </div>,
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  </React.StrictMode>
+);
